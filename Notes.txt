@@ -5,3 +5,5 @@ c02 ex11 should be correct but better double check
 c02 ex12 Skipped  for now.
 
 C03 ex05 total mess needs clearing up whats expected!
+C03 ex05, strlen function will return size in case the string was not null terminated while i < size
+like the manual implies, thats why we have to pass the size paramter to it
