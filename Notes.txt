@@ -3,3 +3,5 @@ c02 ex10 needs reviewing. Do I need to check for null characters?! Do i need to 
 c02 ex11 should be correct but better double check
 
 c02 ex12 Skipped  for now.
+
+C03 ex05 total mess needs clearing up whats expected!
