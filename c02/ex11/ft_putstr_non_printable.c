@@ -5,7 +5,7 @@ void print_hex(int nbr)
     char *hex;
 
     hex = "0123456789abcdef";
-    if (nbr > 16)
+    if (nbr >= 16)
     {
         print_hex(nbr / 16);
         print_hex(nbr % 16);
