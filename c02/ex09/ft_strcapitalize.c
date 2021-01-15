@@ -45,17 +45,11 @@ char    *ft_strcapitalize(char *str)
             isnewword = 'n';
         }
         else if(ft_isalphanumeric(str[i]) != 1)
-        {
             isnewword = 'y';
-        }
         else if(ft_isuppercase(str[i]) == 1 && isnewword == 'n')
-        {
             str[i] += 32;
-        }
         else
-        {
             isnewword = 'n';
-        }
         i++;
     }
 

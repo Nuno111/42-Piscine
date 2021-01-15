@@ -36,7 +36,7 @@ int ft_check_usage(char *base, int length)
     while (base[i] != '\0')
     {
         j = i + 1;
-        if (base[i] == '-' || base[i] == '+' || base[i] < 32 || base[i] > 126)
+        if (base[i] == '-' || base[i] == '+' || base[i] < 32 || base[i] == 127)
             return (1);
         while (base[j] != '\0')
         {

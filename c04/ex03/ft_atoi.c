@@ -3,9 +3,7 @@
 int     ft_is_numeric(char letter)
 {
     if ((letter >= '0' && letter <= '9'))
-    {
         return (1);
-    }
 
     return (0);
 }
@@ -20,20 +18,14 @@ int ft_ispositive(char *ispositive, char *letter)
     while (ft_is_numeric(letter[index]) != 1)
     {
         if (letter[index] == '-')
-        {
             count++;
-        }
         index++;
     }
 
     if (count % 2 == 0)
-    {
         *ispositive = 'y';
-    }
     else
-    {
         *ispositive = 'n';
-    }
 
     return (index);
 }

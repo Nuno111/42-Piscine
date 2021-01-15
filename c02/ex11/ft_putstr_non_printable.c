@@ -24,7 +24,7 @@ void    ft_putstr_non_printable(char *str)
     i = 0;
     while (str[i])
     {
-        if ((str[i] < 32))
+        if ((str[i] < 32) || str[i] == 127)
         {
             write(1, "\\0", 2);
             print_hex(str[i]);
