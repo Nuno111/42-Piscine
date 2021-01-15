@@ -9,3 +9,5 @@ C03 ex05, strlen function will return size in case the string was not null termi
 like the manual implies, thats why we have to pass the size paramter to it
 
 c05 ex08 skipped, need help to solve this puzzle..
+
+c06 ex03 sill needs to be finished,
