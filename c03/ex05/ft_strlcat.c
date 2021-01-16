@@ -5,13 +5,8 @@ unsigned int		ft_strlen(char *str, unsigned int size)
 	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i] != '\0' && i < size)
 		i++;
-
-    if (str[i] != '\0')
-    {
-        return (size);
-    }
 
 	return (i);
 }
