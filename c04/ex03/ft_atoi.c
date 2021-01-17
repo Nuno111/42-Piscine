@@ -1,5 +1,3 @@
-#include <unistd.h>
-
 int     ft_is_numeric(char letter)
 {
     if ((letter >= '0' && letter <= '9'))

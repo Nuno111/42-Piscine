@@ -1,5 +1,3 @@
-#include <unistd.h>
-
 int	ft_get_index(char c, char *str)
 {
 	int	index;
