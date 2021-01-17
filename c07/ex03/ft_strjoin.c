@@ -82,15 +82,15 @@ char *ft_strjoin(int size, char **strs, char *sep)
     if (size == 1)
         return *strs;
     if (size == 0)
-        return newstr;
+        {
+            newstr = malloc(1);
+            return newstr;
+        }
 
     newstr = malloc(ft_get_length(size, strs, sep));
-
     if (newstr == NULL)
         return (NULL);
-
     ft_strcpy(newstr, strs[0]);
-
     while (i < size)
     {
         ft_strcat(newstr, strs[i], sep);

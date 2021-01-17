@@ -1,10 +1,12 @@
 #include <unistd.h>
 
-void    ft_print_combn(int n)
+void ft_fill_array(char *arr, int n)
 {
-    write(1, "a", 1);    
-}  
-int     main(void)
+
+}
+void	ft_print_combn(int n)
 {
-    ft_print_combn(5);
+	char arr[10000];
+
+
 }
