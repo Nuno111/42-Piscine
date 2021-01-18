@@ -6,11 +6,11 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:14:27 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 11:19:14 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/18 18:17:57 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
 int		ft_isalphanumeric(char letter)
 {

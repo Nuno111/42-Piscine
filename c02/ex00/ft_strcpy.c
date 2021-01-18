@@ -6,11 +6,9 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:04:34 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 10:06:02 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/18 16:21:06 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 char	*ft_strcpy(char *dest, char *src)
 {

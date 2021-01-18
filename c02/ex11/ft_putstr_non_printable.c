@@ -6,7 +6,7 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:49:40 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 11:52:01 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/18 19:41:18 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ void	ft_putstr_non_printable(char *str)
 	{
 		if ((str[i] < 32) || str[i] == 127)
 		{
-			write(1, "\\0", 2);
+			write(1, "\\", 1);
+			if (str[i] < 16)
+				write(1, "0", 1);
 			print_hex(str[i]);
 		}
 		else

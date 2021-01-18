@@ -6,11 +6,9 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:13:01 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 10:13:44 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/18 16:25:50 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int		ft_str_is_numeric(char *str)
 {

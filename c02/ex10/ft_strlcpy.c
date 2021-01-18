@@ -6,7 +6,7 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:47:51 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 11:49:32 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/18 18:29:48 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 			dest[i] = src[i];
 			i++;
 		}
-		dest[i + 1] = '\0';
+		dest[i] = '\0';
 	}
 	while (src[i])
 	{

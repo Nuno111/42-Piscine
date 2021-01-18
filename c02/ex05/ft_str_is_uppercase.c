@@ -6,11 +6,9 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 11:10:19 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 11:10:20 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/18 16:30:16 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int		ft_str_is_uppercase(char *str)
 {

@@ -6,11 +6,9 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:14:04 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 11:09:20 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/18 16:29:42 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int		ft_str_is_lowercase(char *str)
 {
