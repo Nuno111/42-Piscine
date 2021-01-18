@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/18 10:07:20 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/18 10:12:30 by ngregori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int     ft_str_is_alpha(char *str)
+int		ft_str_is_alpha(char *str)
 {
-    unsigned int i;
+	unsigned int i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (!(str[i] >= 'A' && str[i] <= 'Z') && !(str[i] >= 'a' && str[i] <= 'z'))
-        {
-            return (0);
-        }
-        i++;
-    }
-
-    return (1);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 'A' && str[i] <= 'Z') &&
+				(str[i] >= 'a' && str[i] <= 'z'))
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }

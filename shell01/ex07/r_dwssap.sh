@@ -1,1 +1,1 @@
-cat /etc/passwd | sed '/^#/d' | awk 'NR >=  2 && NR % 2 == 0' | sed 's/:.*$//g' | rev | sort -dr | awk 'NR >= l1 && NR <= l2' l1="$FT_LINE1" l2="$FT_LINE2" | tr '\n' "," | sed 's/,/, /g' | sed 's/ $/ ./g'
+cat /etc/passwd | grep -v '#' | awk 'NR%2==0' | sed 's/:\*:.*//' | rev | sort -r | sed -n "$FT_LINE1,$FT_LINE2 p" | sed 's/$/, /' | tr -d '\n' | sed 's/, $/./' | tr -d "\n"

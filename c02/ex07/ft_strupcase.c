@@ -1,18 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/18 11:12:26 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/18 11:13:06 by ngregori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-char     *ft_strupcase(char *str)
+char	*ft_strupcase(char *str)
 {
-    unsigned int i;
+	unsigned int i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if ((str[i] >= 'a' && str[i] <= 'z'))
-        {
-            str[i] = str[i] - 32;
-        }
-        i++;
-    }
-
-    return (str);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z'))
+		{
+			str[i] = str[i] - 32;
+		}
+		i++;
+	}
+	return (str);
 }

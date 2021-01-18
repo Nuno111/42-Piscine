@@ -1,18 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/18 11:13:19 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/18 11:14:13 by ngregori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-char     *ft_strlowcase(char *str)
+char	*ft_strlowcase(char *str)
 {
-    unsigned int i;
+	unsigned int i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if ((str[i] >= 'A' && str[i] <= 'Z'))
-        {
-            str[i] = str[i] + 32;
-        }
-        i++;
-    }
-
-    return (str);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 'A' && str[i] <= 'Z'))
+		{
+			str[i] = str[i] + 32;
+		}
+		i++;
+	}
+	return (str);
 }
