@@ -6,11 +6,9 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:25:07 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/18 14:19:32 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/19 08:56:09 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int		ft_strcmp(char *s1, char *s2)
 {
