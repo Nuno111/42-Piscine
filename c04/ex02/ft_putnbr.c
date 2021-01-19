@@ -5,51 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 10:33:58 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/19 10:35:33 by ngregori         ###   ########.fr       */
+/*   Created: 2021/01/19 20:17:49 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/19 20:23:22 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_get_divisor(int nb)
+void	ft_putchar(char c)
 {
-	int i;
-
-	i = 1;
-	while ((nb = nb / 10) > 0)
-		i *= 10;
-	return (i);
-}
-
-int		ft_check_negative(int nb)
-{
-	if (nb < 0)
-		return (1);
-	return (0);
+	write(1, &c, 1);
 }
 
 void	ft_putnbr(int nb)
 {
-	char	character;
-	int		divisor;
-
 	if (nb == -2147483648)
-    {
-        write(1, "-2147483648", 11);
-        return;
-    }
-
-	if (ft_check_negative(nb) == 1)
 	{
-		nb = -nb;
-		write(1, "-", 1);
+		ft_putnbr(nb / 10);
+		ft_putchar('8');
 	}
-	while (nb > 0)
+	else if (nb < 0)
 	{
-		divisor = ft_get_divisor(nb);
-		character = nb / divisor + '0';
-		write(1, &character, 1);
-		nb = nb % divisor;
+		ft_putchar('-');
+		ft_putnbr(-nb);
+	}
+	else
+	{
+		if (nb > 9)
+			ft_putnbr(nb / 10);
+		ft_putchar(48 + nb % 10);
 	}
 }

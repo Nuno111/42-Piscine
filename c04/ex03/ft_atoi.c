@@ -1,56 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   b.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 10:37:46 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/19 10:38:53 by ngregori         ###   ########.fr       */
+/*   Created: 2021/01/19 19:56:20 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/19 20:15:29 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_numeric(char letter)
+int		ft_is_white_space(char *letter)
 {
-	if ((letter >= '0' && letter <= '9'))
-		return (1);
-	return (0);
-}
+	int i;
 
-int		ft_ispositive(char *ispositive, char *letter)
-{
-	int index;
-	int count;
-
-	index = 0;
-	count = 0;
-	while (ft_is_numeric(letter[index]) != 1)
-	{
-		if (letter[index] == '-')
-			count++;
-		index++;
-	}
-	if (count % 2 == 0)
-		*ispositive = 'y';
-	else
-		*ispositive = 'n';
-	return (index);
+	i = 0;
+	while ((letter[i] >= 9 && letter[i] <= 13) || letter[i] == 32)
+		i++;
+	return (i);
 }
 
 int		ft_atoi(char *str)
 {
-	int		index;
-	char	ispositive;
-	int		result;
+	int i;
+	int result;
+	int sign;
 
+	i = ft_is_white_space(str);
 	result = 0;
-	index = ft_ispositive(&ispositive, str);
-	while (ft_is_numeric(str[index]) == 1)
+	sign = 1;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		result = result * 10 + str[index] - '0';
-		index++;
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	if (ispositive != 'y')
-		result = result * -1;
-	return (result);
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			result = result * 10 + str[i] - '0';
+			i++;
+		}
+		else
+			return (result * sign);
+	}
+	return (result * sign);
 }

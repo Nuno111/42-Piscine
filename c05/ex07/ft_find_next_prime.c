@@ -25,3 +25,12 @@ int ft_find_next_prime(int nb)
     
     return (nb + i);
 }
+int main(void)
+{
+	int nb;
+	int result;
+	for (nb = 0; nb < 222002; nb++) {
+	result = ft_find_next_prime(nb);
+	printf("Next prime of %d, is %d\n", nb, result);
+	}
+}
