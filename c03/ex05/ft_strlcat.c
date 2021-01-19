@@ -6,18 +6,18 @@
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 10:27:12 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/19 10:29:59 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/19 11:20:19 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-unsigned int	ft_strlen(char *str, unsigned int size)
+unsigned int	ft_strlen(char *str)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0' && i < size)
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
@@ -38,5 +38,5 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	}
 	if (i + j < size)
 		dest[i + j] = '\0';
-	return (i + ft_strlen(src, size));
+	return (i + ft_strlen(src));
 }

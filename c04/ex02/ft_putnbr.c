@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/19 10:33:58 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/19 10:35:33 by ngregori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 int		ft_get_divisor(int nb)
@@ -6,18 +18,14 @@ int		ft_get_divisor(int nb)
 
 	i = 1;
 	while ((nb = nb / 10) > 0)
-	{
 		i *= 10;
-	}
 	return (i);
 }
 
 int		ft_check_negative(int nb)
 {
 	if (nb < 0)
-	{
 		return (1);
-	}
 	return (0);
 }
 
@@ -26,7 +34,7 @@ void	ft_putnbr(int nb)
 	char	character;
 	int		divisor;
 
-    if (nb == -2147483648)
+	if (nb == -2147483648)
     {
         write(1, "-2147483648", 11);
         return;
