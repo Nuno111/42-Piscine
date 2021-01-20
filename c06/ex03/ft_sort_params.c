@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/20 17:29:28 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/20 17:37:25 by ngregori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int     ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(char *s1, char *s2)
 {
-    int i;
+	int i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && (unsigned char)s1[i] == (unsigned char)s2[i])
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
@@ -22,7 +34,7 @@ void	ft_putstr(char const *s)
 	}
 }
 
-void ft_print_args(int argc, char *argv[])
+void	ft_print_args(int argc, char *argv[])
 {
 	int i;
 
@@ -35,12 +47,13 @@ void ft_print_args(int argc, char *argv[])
 	}
 }
 
-void 	ft_bubble_sort(int argc, char *argv[])
+void	ft_bubble_sort(int argc, char *argv[])
 {
-	char sorted;
+	char	sorted;
 	int		i;
 	char	*tmp;
 
+	sorted = 'n';
 	while (sorted != 'y')
 	{
 		sorted = 'y';
@@ -63,10 +76,11 @@ void 	ft_bubble_sort(int argc, char *argv[])
 int		main(int argc, char *argv[])
 {
 	if (argc == 2)
+	{
 		ft_putstr(argv[1]);
+		write(1, "\n", 1);
+	}
 	else if (argc > 2)
 		ft_bubble_sort(argc, argv);
-
 	return (0);
 }
-
