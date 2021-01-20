@@ -1,14 +1,26 @@
-int ft_sqrt(int nb)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/20 16:00:03 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/20 16:00:14 by ngregori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int		ft_sqrt(int nb)
 {
-    float divisor;
+	int		i;
 
-    divisor = 1;
-    while (divisor <= nb)
-    {
-        if (divisor == nb / divisor)
-            return (divisor);
-        divisor++;
-    }
-
-    return (0);
+	i = 1;
+	if (nb <= 0)
+		return (0);
+	while (i * i < nb && i < 46341)
+		i++;
+	if (i * i == nb)
+		return (i);
+	else
+		return (0);
 }

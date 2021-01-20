@@ -5,10 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 12:49:09 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/19 12:49:26 by ngregori         ###   ########.fr       */
+/*   Created: 2021/01/20 09:52:55 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/20 10:42:54 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int		ft_validate_input(char *base)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	if (base[0] == '\0' || base[1] == '\0')
+		return (0);
+	while (base[i])
+	{
+		j = i + 1;
+		if (base[i] == '-' || base[i] == '+')
+			return (0);
+		if (base[i] < 32 || base[i] > 126)
+			return (0);
+		while (base[j])
+		{
+			if (base[i] == base[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int		ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+int		ft_is_white_space(char *letter)
+{
+	int i;
+
+	i = 0;
+	while ((letter[i] >= 9 && letter[i] <= 13) || letter[i] == 32)
+		i++;
+	return (i);
+}
 
 int		ft_get_index(char c, char *str)
 {
@@ -24,78 +71,31 @@ int		ft_get_index(char c, char *str)
 	return (-1);
 }
 
-int		ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-int		ft_ispositive(char *ispositive, char *letter, char *base)
-{
-	int index;
-	int count;
-
-	index = 0;
-	count = 0;
-	while (ft_get_index(letter[index], base) == -1)
-	{
-		if (letter[index] == '-')
-			count++;
-		index++;
-	}
-	if (count % 2 == 0)
-		*ispositive = 'y';
-	else
-		*ispositive = 'n';
-	return (index);
-}
-
-int		ft_validate_input(char *base, int length)
-{
-	int i;
-	int j;
-
-	i = 0;
-	if (length <= 1)
-		return (1);
-	while (base[i] != '\0')
-	{
-		j = i + 1;
-		if (base[i] == '-' || base[i] == '+' || base[i] < 32)
-			return (1);
-		while (base[j] != '\0')
-		{
-			if (base[i] == base[j])
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
 int		ft_atoi_base(char *str, char *base)
 {
-	int		index;
-	char	ispositive;
-	int		result;
-	int		length;
+	int i;
+	int result;
+	int sign;
+	int index;
 
-	length = ft_strlen(base);
-	result = 0;
-	index = ft_ispositive(&ispositive, str, base);
-	if (ft_validate_input(base, length) == 1)
+	if (!ft_validate_input(base))
 		return (0);
-	while (ft_get_index(str[index], base) != -1)
+	i = ft_is_white_space(str);
+	result = 0;
+	sign = 1;
+	index = 0;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		result = result * length + ft_get_index(str[index], base);
-		index++;
+		if (str[i++] == '-')
+			sign *= -1;
 	}
-	if (ispositive != 'y')
-		result = result * -1;
-	return (result);
+	while (str[i] != '\0')
+	{
+		index = ft_get_index(str[i++], base);
+		if (index != -1)
+			result = result * ft_strlen(base) + index;
+		else
+			return (result * sign);
+	}
+	return (result * sign);
 }

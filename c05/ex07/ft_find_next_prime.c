@@ -1,36 +1,34 @@
-int ft_is_prime(int nb)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngregori <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/20 16:44:39 by ngregori          #+#    #+#             */
+/*   Updated: 2021/01/20 16:44:48 by ngregori         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int		ft_is_prime(int nb)
 {
-    int divisor;
+	int divisor;
 
-    if (nb <= 1)
-        return 0;
-    divisor = 2;
-    while (divisor <= nb / 2)
-    {
-        if (nb % divisor == 0)
-            return (0);
-        divisor++;
-    }
-
-    return (1);
-}
-
-int ft_find_next_prime(int nb)
-{
-    int i;
-
-    i = 0;
-    while ((ft_is_prime(nb + i)) != 1)
-        i++;
-    
-    return (nb + i);
-}
-int main(void)
-{
-	int nb;
-	int result;
-	for (nb = 0; nb < 222002; nb++) {
-	result = ft_find_next_prime(nb);
-	printf("Next prime of %d, is %d\n", nb, result);
+	if (nb <= 1)
+		return (0);
+	divisor = 2;
+	while (divisor <= nb / 2)
+	{
+		if (nb % divisor == 0)
+			return (0);
+		divisor++;
 	}
+	return (1);
+}
+
+int		ft_find_next_prime(int nb)
+{
+	while ((ft_is_prime(nb)) != 1)
+		nb++;
+	return (nb);
 }
