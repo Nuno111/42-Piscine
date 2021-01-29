@@ -6,7 +6,7 @@
 /*   By: ngregori <ngregori@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:51:53 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/29 00:00:47 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/29 04:19:28 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,17 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t size)
 	return (length);
 }
 
-struct s_stock_str	*ft_allocate_memory(int ac, char **av)
+char				*ft_strdup(const char *s)
 {
-	struct s_stock_str	*tab;
-	int					i;
+	char	*newstr;
+	size_t	length;
 
-	i = 0;
-	tab = malloc(sizeof(struct s_stock_str) * (ac + 1));
-	if (!tab)
+	length = ft_strlen(s);
+	newstr = malloc(sizeof(char) * length + 1);
+	if (!newstr)
 		return (NULL);
-	while (i < ac)
-	{
-		tab[i].str = malloc(sizeof(char) * ft_strlen(av[i]) + 1);
-		tab[i].copy = malloc(sizeof(char) * ft_strlen(av[i]) + 1);
-		if (!tab[i].str || !tab[i].copy)
-			return (NULL);
-		i++;
-	}
-	return (tab);
+	ft_strlcpy(newstr, s, length + 1);
+	return (newstr);
 }
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
@@ -66,15 +59,17 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	struct s_stock_str	*tab;
 	int					i;
 
-	tab = ft_allocate_memory(ac, av);
+	tab = malloc(sizeof(struct s_stock_str) * (ac + 1));
 	if (!tab)
 		return (NULL);
 	i = 0;
 	while (i < ac)
 	{
-		tab[i].size = ft_strlen(av[i]) + 1;
-		ft_strlcpy(tab[i].str, av[i], tab[i].size);
-		ft_strlcpy(tab[i].copy, av[i], tab[i].size);
+		tab[i].size = ft_strlen(av[i]);
+		tab[i].str = av[i];
+		tab[i].copy = ft_strdup(av[i]);
+		if (!tab[i].copy)
+			return (NULL);
 		i++;
 	}
 	tab[i].size = 0;

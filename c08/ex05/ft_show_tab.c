@@ -6,11 +6,12 @@
 /*   By: ngregori <ngregori@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 21:43:48 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/28 23:43:56 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/29 00:04:28 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
