@@ -6,7 +6,7 @@
 /*   By: ngregori <ngregori@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 21:43:48 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/29 00:04:28 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/01/29 04:30:55 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_show_tab(struct s_stock_str *par)
 	size_t i;
 
 	i = 0;
-	while (par[i].size)
+	while (par[i].str)
 	{
 		ft_putstr(par[i].str);
 		write(1, "\n", 1);
