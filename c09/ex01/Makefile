@@ -10,7 +10,7 @@ SRC = $(wildcard srcs/*.c)
 
 DST = ${SRC:.c=.o}
 
-OPT = -c -I includes
+OPT = -c -I includes -o
 
 all : ${NAME}
 
@@ -18,7 +18,7 @@ ${NAME} : ${DST}
 	ar rcs $@ $^
 
 %.o :%.c ${HDR}
-	${CC} ${CFLAGS} ${OPT} -o $@ $<
+	${CC} ${CFLAGS} ${OPT} $@ $<
 
 clean :
 	rm -rf ${DST}
