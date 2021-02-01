@@ -6,7 +6,7 @@
 /*   By: ngregori <ngregori@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 13:50:53 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/31 19:35:07 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/02/01 00:17:33 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_display_file(char *file)
 	char	c;
 
 	c = 0;
-	if (!(fd = open(file, O_RDONLY)))
+	if ((fd = open(file, O_RDONLY) == -1))
 		write(1, "Cannot read file\n", 18);
 	else
 	{
