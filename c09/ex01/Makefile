@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-HDR = includes/b.h
+HDR = includes/ft.h
 
 SRC = $(wildcard srcs/*.c)
 
@@ -21,9 +21,11 @@ ${NAME} : ${DST}
 	${CC} ${CFLAGS} ${OPT} $@ $<
 
 clean :
-	rm -rf ${DST}
+	rm -f ${DST}
 
 fclean : clean
-	rm -rf ${NAME}
+	rm -f ${NAME}
 
 re : fclean all
+
+.PHONY: all clean fclean re

@@ -6,30 +6,23 @@
 /*   By: ngregori <ngregori@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 19:04:18 by ngregori          #+#    #+#             */
-/*   Updated: 2021/01/31 13:39:01 by ngregori         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:34:34 by ngregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t i;
 	size_t length;
 
-	length = ft_strlen(src);
-	if (!dst || !src || !size)
+	if (!src)
+		return (0);
+	length = 0;
+	while (src[length])
+		length++;
+	if (!dst || !size)
 		return (length);
 	i = 0;
 	while (src[i] != '\0' && i < size - 1)
@@ -41,56 +34,65 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 	return (length);
 }
 
-size_t		ft_calc_sep(char *str, char *charset, size_t *str_index)
+char		*ft_strchr(const char *s, int c)
 {
-	size_t 	i;
-	size_t 	j;
-	int		count;
+	int i;
 
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (&((char *)s)[i]);
+		i++;
+	}
+	if (s[i] == c)
+		return (&((char *)s)[i]);
+	return (NULL);
+}
+
+size_t		ft_count_words(char *str, char *charset, size_t *str_index)
+{
+	size_t	i;
+	int		count;
+	char	is_word;
+
+	is_word = 'n';
 	count = 0;
 	i = 0;
 	while (str[i])
 	{
-		j = 0;
-		if (str[i] == charset[j])
+		is_word == 'y' ? count++ : count;
+		if (ft_strchr(charset, str[i]) && !(ft_strchr(charset, str[i + 1]))
+		&& str[i + 1] != '\0')
+			is_word = 'y';
+		else if (ft_strchr(charset, str[i]))
+			is_word = 'n';
+		else
 		{
-			while (str[i + j] == charset[j] && charset[j] != '\0')
-				j++;
-			if (charset[j] == '\0')
-				{
-					if (count == 0)
-						*str_index = i + j;
-					count++;
-				}
+			(count == 1 && is_word == 'y') ? *str_index = i : 0;
+			while (str[i] != '\0' && !(ft_strchr(charset, str[i + 1])))
+				i++;
+			is_word = 'n';
 		}
 		i++;
 	}
-	return (count - 1);
+	return (count);
 }
 
-size_t	ft_get_length(char *str, char *charset, size_t *str_index)
+size_t		ft_get_length(char *str, char *charset, size_t str_index)
 {
-	size_t j;
 	size_t length;
 
 	length = 0;
-	while (str[*str_index])
+	while (str[str_index] && !(ft_strchr(charset, str[str_index])))
 	{
-		j = 0;
-		if (str[*str_index] == charset[j])
-		{
-			while (str[*str_index + j] == charset[j])
-				j++;
-			if (charset[j] == '\0' && ++*str_index)
-				return (length);
-		}
-		*str_index += 1;
+		str_index++;
 		length++;
 	}
 	return (length);
 }
 
-char	**ft_split(char *str, char *charset)
+char		**ft_split(char *str, char *charset)
 {
 	char	**arr;
 	size_t	i;
@@ -99,34 +101,22 @@ char	**ft_split(char *str, char *charset)
 	size_t	str_length;
 
 	str_index = 0;
-	arr_length = ft_calc_sep(str, charset, &str_index);
+	arr_length = ft_count_words(str, charset, &str_index);
 	if (!(arr = malloc(sizeof(char *) * (arr_length + 1))))
 		return (NULL);
-	i = 0;
-	while (i < arr_length)
+	i = -1;
+	while (++i < arr_length)
 	{
-		str_length = ft_get_length(str, charset, &str_index);
+		while (ft_strchr(charset, str[str_index]) && str[str_index] != '\0')
+			str_index++;
+		str_length = ft_get_length(str, charset, str_index);
 		if (!(arr[i] = malloc(sizeof(char) * str_length + 1)))
 			return (NULL);
-		ft_strlcpy(arr[i], &str[str_index - str_length - 1], str_length + 1);
-		i++;
+		ft_strlcpy(arr[i], &str[str_index], str_length + 1);
+		str_index += str_length;
 	}
-	if(!(arr[i] = malloc(sizeof(char))))
+	if (!(arr[i] = malloc(sizeof(char))))
 		return (NULL);
 	arr[i] = 0;
 	return (arr);
-}
-
-int main(void)
-{
-	char **arr;
-	int i;
-
-	i = 0;
-	arr = ft_split("Hello,,This,,Is,,Beetween,,Commas,", ",,");
-	while(arr[i] != 0)
-	{
-		printf("%s\n", arr[i]);
-		i++;
-	}
 }
